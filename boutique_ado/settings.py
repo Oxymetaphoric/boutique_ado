@@ -43,6 +43,7 @@ INSTALLED_APPS = [
 
     # Optional -- requires install using `django-allauth[socialaccount]`.
     'allauth.socialaccount',
+    'home',
 ]
 
 MIDDLEWARE = [
@@ -61,11 +62,14 @@ ROOT_URLCONF = 'boutique_ado.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            os.path.join(BASE_DIR, 'templates'),
+            os.path.join(BASE_DIR, 'templates', 'allauth')
+            ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
-                'django.template.context_processors.debug',
+                 'django.template.context_processors.debug',
                 'django.template.context_processors.request', #req. by allAuth
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
