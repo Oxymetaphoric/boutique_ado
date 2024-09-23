@@ -70,8 +70,10 @@ body {
   z-index: -1;
 }
 
+.header-container {
+  padding-top: 164px;
+  }
 /* --------------------------------- Media queries */
-
 /* Slightly larger container on xl screens */
 @media (min-width: 1200px) {
   .container {
@@ -89,7 +91,15 @@ body {
         z-index: 1030;
     }
 
+}
+
+/* pad the top a bit when navbar is collapsed on mobile */
+@media (max-width: 991px) {
     .header-container {
         padding-top: 164px;
+    }
+
+    body {
+        height: calc(100vh - 116px);
     }
 }
