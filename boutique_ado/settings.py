@@ -72,10 +72,10 @@ TEMPLATES = [
         'OPTIONS': {
             'context_processors': [
                  'django.template.context_processors.debug',
-                'django.template.context_processors.request', #req. by allAuth
-                'django.contrib.auth.context_processors.auth',
-                'django.contrib.messages.context_processors.messages',
-                'bag.contexts.bag_contents',
+                 'django.template.context_processors.request', #req. by allAuth
+                 'django.contrib.auth.context_processors.auth',
+                 'django.contrib.messages.context_processors.messages',
+                 'bag.contexts.bag_contents',
             ],
         },
     },
