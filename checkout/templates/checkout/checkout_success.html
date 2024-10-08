@@ -23,7 +23,6 @@
           <hr>
           <p class="text-black">Your order information is below. A confirmation message will be sent to <strong>{{order.email}}</strong></p>
         </div>
-      </div>
       <div class="row">
         <div class="col-12 col-lg-7">
           <div class="order-confirmation-wrapper p-2 border">
@@ -82,49 +81,63 @@
               <div class="col-12 col-md-4 text-md-right">
                 <p>{{ order.full_name }}</p>
               </div>
-            </div><div class="row">
+            </div>
+            <div class="row">
               <div class="col-12 col-md-4">
                 <p class="small mb-0 text-black font-weight-bold">Address 1</p>
               </div>
               <div class="col-12 col-md-4 text-md-right">
                 <p>{{ order.street_address1 }}</p>
               </div>
-            </div><div class="row">
+            </div>
+            <div class="row">
               <div class="col-12 col-md-4">
                 <p class="small mb-0 text-black font-weight-bold">Adddress 2:</p>
               </div>
+              
+            {% if order.street_address2 %}
               <div class="col-12 col-md-4 text-md-right">
                 <p>{{ order.street_address2 }}</p>
               </div>
-            </div><div class="row">
+            </div>
+            {% endif %}
+            {% if order.county %}
+            <div class="row">
               <div class="col-12 col-md-4">
                 <p class="small mb-0 text-black font-weight-bold">county:</p>
               </div>
               <div class="col-12 col-md-4 text-md-right">
                 <p>{{ order.county }}</p>
               </div>
-            </div><div class="row">
+            </div>
+            {% endif %}
+            <div class="row">
               <div class="col-12 col-md-4">
                 <p class="small mb-0 text-black font-weight-bold">town/city:</p>
               </div>
               <div class="col-12 col-md-4 text-md-right">
                 <p>{{ order.town_or_city }}</p>
               </div>
-            </div><div class="row">
+            </div>
+            {% if order.postcode %}
+            <div class="row">
               <div class="col-12 col-md-4">
                 <p class="small mb-0 text-black font-weight-bold">Post Code:</p>
               </div>
               <div class="col-12 col-md-4 text-md-right">
                 <p>{{ order.postcode }}</p>
               </div>
-            </div><div class="row">
+            </div>
+            {% endif  %}
+            <div class="row">
               <div class="col-12 col-md-4">
                 <p class="small mb-0 text-black font-weight-bold">country:</p>
               </div>
               <div class="col-12 col-md-4 text-md-right">
                 <p>{{ order.country}}</p>
               </div>
-            </div><div class="row">
+            </div>
+            <div class="row">
               <div class="col-12 col-md-4">
                 <p class="small mb-0 text-black font-weight-bold">phone number:</p>
               </div>
@@ -162,10 +175,9 @@
                 <p>{{ order.grand_total}}</p>
               </div>
             </div>
-
+      </div>
           </div>
         </div>
-      </div>
       <div class="row">
         <div class="col-12 col-lg-7 text-right">
           <a href="{% url 'products' %}?category=new_arrivals,deals,clearance" class="btn btn-black rounded-0 my-2">
