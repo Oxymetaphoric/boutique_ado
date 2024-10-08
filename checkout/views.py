@@ -13,8 +13,6 @@ def checkout(request):
 
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
     stripe_secret_key = settings.STRIPE_SECRET_KEY
-    print(stripe_public_key)
-    print(stripe_secret_key)
     bag = request.session.get('bag', {})
     if not bag: 
         messages.error(request, "There is nothing in your ba at the moment")
@@ -30,10 +28,12 @@ def checkout(request):
             )
     print(intent)
     order_form = Orderingform()
+    if not stripe_public_key:
+        messages.warning(request,'Stripe public key missing. Check your .env')
     template = 'checkout/checkout.html'
     context = {
             'order_form': order_form,
-            'stripe_public_key': 'settings.STRIPE_PUBLIC_KEY',
+            'stripe_public_key': stripe_public_key,
             'client_secret': intent.client_secret,
             }
     return render(request, template, context)
