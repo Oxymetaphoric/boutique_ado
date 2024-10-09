@@ -146,6 +146,16 @@ a.category-badge > span.badge:hover {
   border-bottom-color: #007bff !important;
 }
 
+.overlay {
+	height: 100%;
+	width: 100%;
+	top: 0;
+	left: 0;
+	position: fixed;
+	background: white;
+	z-index: -1;
+}
+
 .arrow-secondary {
     border-bottom-color: #6c757d !important;
 }
