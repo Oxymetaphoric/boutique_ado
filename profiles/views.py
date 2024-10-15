@@ -8,7 +8,7 @@ def profile(request):
     profile = get_object_or_404(UserProfile, user=request.user)
 
     form = UserProfileForm(instance=profile)
-    orders = profile.orders.all()
+    orders = profile.Orders.all()
 
     template='profiles/profile.html'
     context = {
