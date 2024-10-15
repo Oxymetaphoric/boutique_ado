@@ -1,0 +1,7 @@
+
+ Hello {{ order.full_name }}!
+
+ CONFIRMATION EMAIL
+
+ {{ order.order_number }}
+ {{ order.date }}
